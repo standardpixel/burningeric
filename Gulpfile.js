@@ -187,10 +187,9 @@ gulp.task("webserver", function() {
 //
 //
 gulp.task('sass', function () {
-    gulp.src('./scss/*.scss')
-        .pipe(sass().on("error", function(e) {
-          console.log("Sass error:\x07",e.message, " on line: ", e.lineNumber);
-          return this.end();
+    gulp.src('./sass/*.scss')
+        .pipe(sass({
+          "errLogToConsole": true
         }))
         .pipe(gulp.dest('./build/css'));
 });
